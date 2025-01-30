@@ -22,34 +22,40 @@ def max_panels_amount(a: int, b: int, x: int, y: int) -> int:
 
     # Primera orientación
 
+
+    # PASO 1: Primer "llenado"
     first_fit_1 = x // b
     second_fit_1 = y // a
-
     total_1 = first_fit_1 * second_fit_1
 
+    # PASO 2: Lo que falta se rellena con la figura rotada
+    # 2.1 Cuando queda un espacio a la derecha
     remaining_width_1 = x % b
-    remaining_height_1 = y % a
-
-
     option1_extra_fit_1 = (remaining_width_1 // a) * (y // b)
+
+    # 2.2 Cuando queda un espacio abajo
+    remaining_height_1 = y % a
     option2_extra_fit_1 = (remaining_height_1 // b) * (x // a)
 
 
     total_1 += (option1_extra_fit_1 + option2_extra_fit_1)
 
 
-
     # Segunda orientación
 
+
+    # PASO 1: Primer "llenado"
     first_fit_2 = x // a
     second_fit_2 = y // b
-
     total_2 = first_fit_2 * second_fit_2
 
+    # PASO 2: Lo que falta se rellena con la figura rotada
+    # 2.1 Cuando queda un espacio a la derecha
     remaining_width_2 = x % a
-    remaining_height_2 = y % b
-
     option1_extra_fit_2 = (remaining_width_2 // b) * (y // a)
+
+    # 2.2 Cuando queda un espacio abajo
+    remaining_height_2 = y % b
     option2_extra_fit_2 = (remaining_height_2 // a) * (x // b)
 
 
